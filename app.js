@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 var bodyParser = require('body-parser')
 const morgan = require('morgan')
+const expressValidator = require('express-validator')
 
 
 const cookiParser = require('cookie-parser')
@@ -29,6 +30,7 @@ app.use(express.json()) // To parse the incoming requests with JSON payloads
 app.use(express.urlencoded({extended: true}))
 app.use(morgan("dev"))
 app.use(cookiParser())
+app.use(expressValidator())
 
 //db
 
