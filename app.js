@@ -2,9 +2,11 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
 var bodyParser = require('body-parser')
-
-// const cookiParser = require('cooki-parser')
 const morgan = require('morgan')
+
+
+const cookiParser = require('cookie-parser')
+// const morgan = require('morgan')
 
 
 
@@ -22,9 +24,11 @@ const userRoutes = require('./routes/user.js')
 //app
 const app = express()
 
-
-app.use(express.urlencoded({extended: true}));
 app.use(express.json()) // To parse the incoming requests with JSON payloads
+
+app.use(express.urlencoded({extended: true}))
+app.use(morgan("dev"))
+app.use(cookiParser())
 
 //db
 
