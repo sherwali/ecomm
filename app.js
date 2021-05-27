@@ -16,6 +16,7 @@ const cookiParser = require('cookie-parser')
 
 
 // import routes
+const authRoutes = require('./routes/auth.js')
 const userRoutes = require('./routes/user.js')
 
 
@@ -45,6 +46,7 @@ mongoose.connect(process.env.DATABASE, {
 
 app.use(morgan('dev'))
 
+app.use('/api' ,authRoutes)
 app.use('/api' ,userRoutes)
 
 const port = process.env.PORT || 8000
