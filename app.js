@@ -19,6 +19,7 @@ const cookiParser = require('cookie-parser')
 const authRoutes = require('./routes/auth.js')
 const userRoutes = require('./routes/user.js')
 const categoryRoutes = require('./routes/category.js')
+const productRoutes = require('./routes/product.js')
 
 
 
@@ -50,6 +51,7 @@ app.use(morgan('dev'))
 app.use('/api' ,authRoutes)
 app.use('/api' ,userRoutes)
 app.use('/api' ,categoryRoutes)
+app.use('/api' ,productRoutes)
 
 const port = process.env.PORT || 8000
 
